@@ -1,0 +1,33 @@
+.DS_Store
+.env
+.flaskenv
+*.pyc
+*.pyo
+virtualenv/
+env*
+dist/
+build/
+*.egg
+*.egg-info/
+_mailinglist
+.tox/
+.cache/
+.pytest_cache/
+.idea/
+docs/_build/
+
+# Web server directories
+mail/
+tmp/
+logs/
+ssl/
+etc/
+access-logs
+public_ftp/
+www/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+*,cover
