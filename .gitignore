@@ -4,6 +4,7 @@
 *.pyc
 *.pyo
 *.zip
+research_data/
 virtualenv/
 env*
 dist/

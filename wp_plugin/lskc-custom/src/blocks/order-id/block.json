@@ -1,0 +1,11 @@
+{
+  "apiVersion": 2,
+  "name": "woocommerce/order-id",
+  "title": "Order ID",
+  "category": "woocommerce",
+  "usesContext": ["wc/orderId"],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "wc-order-query-loop"
+}

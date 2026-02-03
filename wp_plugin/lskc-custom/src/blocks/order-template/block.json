@@ -1,0 +1,8 @@
+{
+  "apiVersion": 2,
+  "name": "wc/order-template",
+  "title": "Order Template",
+  "parent": ["wc/order-query"],
+  "usesContext": ["wc/orderQuery"],
+  "supports": { "html": false }
+}

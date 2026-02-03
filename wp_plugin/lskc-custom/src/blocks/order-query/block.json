@@ -1,0 +1,23 @@
+{
+  "apiVersion": 2,
+  "name": "wc/order-query",
+  "title": "Order Query",
+  "category": "woocommerce",
+  "icon": "cart",
+  "description": "Query WooCommerce orders.",
+  "supports": { "html": false },
+  "providesContext": {
+    "wc/orderQuery": "query"
+  },
+  "attributes": {
+    "query": {
+      "type": "object",
+      "default": {
+        "perPage": 10,
+        "order": "desc",
+        "orderBy": "date",
+        "statuses": ["completed", "processing"]
+      }
+    }
+  }
+}

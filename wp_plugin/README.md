@@ -11,6 +11,12 @@ The original website managed the custom post types from within PHP logic of orig
 For a modern theme, custom post type need to be registered by a plugin to allow then to be accessed from
 a Query UI.
 
+## Query of orders
+Create a block that is similar to the Query UI for posts, but instead create a Query UI for orders.
+Following example from:
+https://developer.wordpress.org/block-editor/getting-started/tutorial/
+However making it a subclass within our main plugin
+
 ## Background
 The original LSKC Wordpress site was customised entirely via logic with a custom LSKC theme that was based
 off the classic twentyten theme. The base theme is no longer supported, and a migration to a more modern
