@@ -1,0 +1,3 @@
+there=/home/michael/Documents/containers/lskc_new_theme/public_html/wp-content/plugins/lskc-custom/
+here=/home/michael/Documents/git/lskc/wp_plugin/lskc-custom
+rsync -a ${here}/ ${there}
