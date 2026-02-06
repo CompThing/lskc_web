@@ -24,74 +24,60 @@
  */
 
 namespace Lskc;
-require "order-query-block.php";
 
-if ( !defined( "ABSPATH" ) ) {
-    exit; // Exit if accessed directly
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
 }
 
-class LskcPlugin {
-    public function __construct() {
-    }
+/**
+ * Currently plugin version.
+ * Start at version 1.0.0 and use SemVer - https://semver.org
+ * Rename this for your plugin and update it as you release new versions.
+ */
+define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 
-    // Add our WP admin hooks.
-    public function load() {
-        add_action('admin_menu', [$this, 'add_plugin_options_page']);
-        add_action( 'init', [$this, 'lskc_custom_post_types']);
-        add_action( 'init', 'create_block_lskc_custom_block_init' );
-        add_action('admin_init', [$this, 'add_plugin_settings']);
-    }
-
-    // Add our plugin's option page to the WP admin menu.
-    public function add_plugin_options_page() {
-        add_options_page(
-            'Example Plugin Settings',
-            'Example Plugin Settings',
-            'manage_options',
-            'ex',
-            [$this, 'render_admin_page']
-        );
-    }
-
-	// Custom post types: attachment trip_reports
-    public function lskc_custom_post_types() {
-        register_post_type(
-            'attachment',
-            array(
-                'labels'      => array(
-                    'name'          => __('Attachments', 'textdomain'),
-                    'singular_name' => __('Attachment', 'textdomain'),
-                ),
-                'public'      => true,
-                'has_archive' => true,
-                'show_in_rest' => true,
-            )
-        );
-        register_post_type('trip_reports',
-            array(
-                'labels'      => array(
-                    'name'          => __('Trips', 'textdomain'),
-                    'singular_name' => __('Trip', 'textdomain'),
-                ),
-                'public'      => true,
-                'has_archive' => true,
-                'show_in_rest' => true,
-            )
-        );
-    }
-
-    // Render our plugin's option page.
-    public function render_admin_page() {
-        }
-
-    // Initialize our plugin's settings.
-    public function add_plugin_settings() {
-        return [];
-    }
+/**
+ * The code that runs during plugin activation.
+ * This action is documented in includes/class-lskc-custom-activator.php
+ */
+function activate_lskc_custom() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-lskc-custom-activator.php';
+	Plugin_Name_Activator::activate();
 }
 
-// Load our plugin within the WP admin dashboard.
-if (is_admin()) {
-    $plugin = new LskcPlugin();
-    $plugin->load();
+/**
+ * The code that runs during plugin deactivation.
+ * This action is documented in includes/class-lskc-custom-deactivator.php
+ */
+function deactivate_lskc_custom() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-lskc-custom-deactivator.php';
+	Plugin_Name_Deactivator::deactivate();
 }
+
+register_activation_hook( __FILE__, 'activate_lskc_custom' );
+register_deactivation_hook( __FILE__, 'deactivate_lskc_custom' );
+
+/**
+ * The core plugin class that is used to define internationalization,
+ * admin-specific hooks, and public-facing site hooks.
+ */
+require plugin_dir_path( __FILE__ ) . 'includes/class-lskc-custom.php';
+
+/**
+ * Begins execution of the plugin.
+ *
+ * Since everything within the plugin is registered via hooks,
+ * then kicking off the plugin from this point in the file does
+ * not affect the page life cycle.
+ *
+ * @since    1.0.0
+ */
+function run_LskcPlugin() {
+
+        $plugin = new LskcPlugin();
+        $plugin->run();
+
+}
+run_LskcPlugin();
+
