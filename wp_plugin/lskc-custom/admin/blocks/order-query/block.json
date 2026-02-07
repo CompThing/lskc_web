@@ -1,23 +1,34 @@
 {
-  "apiVersion": 2,
-  "name": "wc/order-query",
-  "title": "Order Query",
-  "category": "woocommerce",
-  "icon": "cart",
-  "description": "Query WooCommerce orders.",
-  "supports": { "html": false },
-  "providesContext": {
-    "wc/orderQuery": "query"
-  },
-  "attributes": {
-    "query": {
-      "type": "object",
-      "default": {
-        "perPage": 10,
-        "order": "desc",
-        "orderBy": "date",
-        "statuses": ["completed", "processing"]
-      }
-    }
-  }
+	"apiVersion": 3,
+	"$schema": "https://schemas.wp.org/trunk/block.json"
+        "name": "lskc/order-query",
+        "title": "Order Query",
+        "category": "lskc",
+        "icon": "product",
+        "description": "Query WooCommerce orders.",
+	"supports": {
+		"interactivity": {
+			"clientNavigation": true
+		},
+		"align": true,
+		"reusable": false,
+		"inserter": false
+	},
+        "providesContext": {
+                "lskc/orderQuery": "query"
+        },
+        "attributes": {
+                "query": {
+                        "type": "object",
+                        "default": {
+                                "perPage": 10,
+                                "order": "desc",
+                                "orderBy": "date",
+                                "statuses": ["completed", "processing"]
+                        }
+                }
+        },
+	"keywords": [ "WooCommerce" ],
+	"usesContext": [ "postId", "postType", "queryId" ],
+	"textdomain": "woocommerce",
 }
