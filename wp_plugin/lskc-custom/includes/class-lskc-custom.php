@@ -102,6 +102,9 @@ class Lskc_Custom {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-lskc-custom-loader.php';
 
+		// Visibility presets.
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/register-post-types.php';
+
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
@@ -211,35 +214,4 @@ class Lskc_Custom {
 	public function get_version() {
 		return $this->version;
 	}
-
-        /**
-	* Custom post types: attachment trip_reports
-        */
-        public function lskc_custom_post_types() {
-            register_post_type(
-                'attachment',
-                array(
-                    'labels'      => array(
-                        'name'          => __('Attachments', 'textdomain'),
-                        'singular_name' => __('Attachment', 'textdomain'),
-                    ),
-                    'public'      => true,
-                    'has_archive' => true,
-                    'show_in_rest' => true,
-                )
-            );
-            register_post_type('trip_reports',
-                array(
-                    'labels'      => array(
-                        'name'          => __('Trips', 'textdomain'),
-                        'singular_name' => __('Trip', 'textdomain'),
-                    ),
-                    'public'      => true,
-                    'has_archive' => true,
-                    'show_in_rest' => true,
-                )
-            );
-        }
 }
-
-

@@ -100,15 +100,10 @@ class Lskc_Custom_Admin {
 
 	}
 
-        // Add our WP admin hooks.
-        public function run() {
-                add_action('admin_menu', [$this, 'add_plugin_options_page']);
-                add_action( 'init', [$this, 'lskc_custom_post_types']);
-                add_action( 'init', 'create_block_lskc_custom_block_init' );
-                add_action('admin_init', [$this, 'add_plugin_settings']);
-        }
 
-        // Add our plugin's option page to the WP admin menu.
+        /**
+        * Add our plugin's option page to the WP admin menu.
+        */
         public function add_plugin_options_page() {
                 add_options_page(
                         'Example Plugin Settings',
@@ -118,8 +113,4 @@ class Lskc_Custom_Admin {
                         [$this, 'render_admin_page']
                 );
         }
-
 }
-
-
-
