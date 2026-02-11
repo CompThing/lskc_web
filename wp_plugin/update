@@ -1,3 +1,4 @@
 there=/home/michael/Documents/containers/lskc_new_theme/public_html/wp-content/plugins/lskc-custom/
 here=/home/michael/Documents/git/lskc/wp_plugin/lskc-custom
+cd $here && npx wp-scripts build --blocks-manifest --webpack-src-dir=includes --output-path=build/blocks
 rsync -a ${here}/ ${there}
