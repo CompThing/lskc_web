@@ -20,6 +20,6 @@
 		"@wordpress/i18n": "latest"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^31.3.0"
+		"@wordpress/scripts": "^31.4.0"
 	}
 }

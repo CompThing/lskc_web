@@ -33,3 +33,8 @@ htmlcov/
 .coverage
 .coverage.*
 *,cover
+
+# Wordpress
+build/
+node_modules/
+

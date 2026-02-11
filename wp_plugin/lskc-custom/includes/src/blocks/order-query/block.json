@@ -1,6 +1,6 @@
 {
 	"apiVersion": 3,
-	"$schema": "https://schemas.wp.org/trunk/block.json"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
         "name": "lskc/order-query",
         "title": "Order Query",
         "category": "lskc",
@@ -30,5 +30,5 @@
         },
 	"keywords": [ "WooCommerce" ],
 	"usesContext": [ "postId", "postType", "queryId" ],
-	"textdomain": "woocommerce",
+	"textdomain": "woocommerce"
 }

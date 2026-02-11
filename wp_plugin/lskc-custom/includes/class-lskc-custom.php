@@ -55,6 +55,15 @@ class Lskc_Custom {
 	protected $version;
 
 	/**
+	 * Manage blocks related to LSKC order queries.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      Lskc_Order_Queries    $order_queries    Manages blocks related to LSKC order queries
+	 */
+	protected $order_queries;
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -73,6 +82,7 @@ class Lskc_Custom {
 
 		$this->load_dependencies();
 		$this->set_locale();
+		$this->define_lskc_hooks();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
@@ -104,6 +114,9 @@ class Lskc_Custom {
 
 		// Visibility presets.
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/register-post-types.php';
+
+		// Order queries.
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-lskc-order-queries.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
@@ -144,6 +157,20 @@ class Lskc_Custom {
 	}
 
 	/**
+	 * Register all of the hooks related to the LSKC custom blockes
+	 * of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function define_lskc_hooks() {
+
+		$order_queries = new Lskc_Order_Queries( $this->get_plugin_name(), $this->get_version() );
+
+                $this->loader->add_action( 'init', $order_queries, 'create_order_query_blocks' );
+	}
+
+	/**
 	 * Register all of the hooks related to the admin area functionality
 	 * of the plugin.
 	 *
@@ -156,7 +183,6 @@ class Lskc_Custom {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
 	}
 
 	/**
