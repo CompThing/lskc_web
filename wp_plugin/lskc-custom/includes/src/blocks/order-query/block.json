@@ -3,7 +3,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
         "name": "lskc/order-query",
         "title": "Order Query",
-        "category": "lskc",
+        "category": "lskc-blocks",
         "icon": "product",
         "description": "Query WooCommerce orders.",
 	"supports": {

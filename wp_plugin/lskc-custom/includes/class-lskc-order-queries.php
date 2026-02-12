@@ -23,9 +23,10 @@
 class Lskc_Order_Queries {
 
 	/**
-	 * Short Description. (use period)
+	 * Create blocks for LSKC.
 	 *
-	 * Long Description.
+	 * Blocks for querying orders/bookings such as pool bookings and then
+         * rendering each of the items returned by the query.
 	 *
 	 * @since    1.0.0
 	 */
@@ -33,6 +34,22 @@ class Lskc_Order_Queries {
                 $path = plugin_dir_path( __FILE__ ) . '/build';
                 $manifest = __DIR__ . '/build/blocks-manifest.php';
                 wp_register_block_types_from_metadata_collection($path, $manifest);
+        }
+
+	/**
+	 * Create block category for LSKC.
+	 *
+	 * Long Description.
+	 *
+	 * @since    1.0.0
+	 */
+        public static function create_lskc_block_category( $block_categories, $post ) {
+                $block_categories[] = array(
+		        'slug' => 'lskc-blocks',
+		        'title' => 'LSKC'
+	        );
+
+	        return $block_categories;
         }
 
 	public static function activate() {

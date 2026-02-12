@@ -168,6 +168,7 @@ class Lskc_Custom {
 		$order_queries = new Lskc_Order_Queries( $this->get_plugin_name(), $this->get_version() );
 
                 $this->loader->add_action( 'init', $order_queries, 'create_order_query_blocks' );
+                $this->loader->add_filter( 'lskc-category', 'block_categories_all', 'create_lskc_block_category' );
 	}
 
 	/**
