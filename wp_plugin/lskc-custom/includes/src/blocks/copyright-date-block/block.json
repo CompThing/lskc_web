@@ -3,7 +3,7 @@
 	"apiVersion": 3,
 	"name": "create-block/copyright-date-block",
 	"version": "0.1.0",
-	"title": "Copyright Date Block",
+	"title": "LSKC Copyright Block",
 	"category": "widgets",
 	"icon": "smiley",
 	"description": "Example block scaffolded with Create Block tool.",

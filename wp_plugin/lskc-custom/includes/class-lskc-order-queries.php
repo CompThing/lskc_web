@@ -31,9 +31,19 @@ class Lskc_Order_Queries {
 	 * @since    1.0.0
 	 */
         public static function create_order_query_blocks() {
-                $path = plugin_dir_path( __FILE__ ) . '/build';
+                $path = plugin_dir_path( __DIR__ ) . '/build';
                 $manifest = __DIR__ . '/build/blocks-manifest.php';
-                wp_register_block_types_from_metadata_collection($path, $manifest);
+				if ( function_exists( 'wp_register_block_types_from_metadata_collection' ) ) {
+					wp_register_block_types_from_metadata_collection( $path, $manifest );
+				} else {
+						if ( function_exists( 'wp_register_block_metadata_collection' ) ) {
+								wp_register_block_metadata_collection( $path, $manifest );
+						}
+						$manifest_data = require $manifest;
+						foreach ( array_keys( $manifest_data ) as $block_type ) {
+								register_block_type( $path . "/{$block_type}" );
+						}
+				}
         }
 
 	/**
@@ -44,10 +54,10 @@ class Lskc_Order_Queries {
 	 * @since    1.0.0
 	 */
         public static function create_lskc_block_category( $block_categories, $post ) {
-                $block_categories[] = array(
+                array_unshift( $block_categories, array(
 		        'slug' => 'lskc-blocks',
 		        'title' => 'LSKC'
-	        );
+	        ) );
 
 	        return $block_categories;
         }

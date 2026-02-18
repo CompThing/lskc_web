@@ -1,7 +1,7 @@
 {
   "apiVersion": 2,
   "name": "wc/order-template",
-  "title": "Order Template",
+  "title": "LSKC Order Template",
   "parent": ["wc/order-query"],
   "usesContext": ["wc/orderQuery"],
   "supports": { "html": false }

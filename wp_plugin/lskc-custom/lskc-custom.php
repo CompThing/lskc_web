@@ -2,8 +2,8 @@
 /**
  * Plugin Name:       Lskc Custom
  * Description:       Customisations needed by Lothian Sea Kayak Club
- * Version:           0.1.0
- * Requires at least: 6.7
+ * Version:           1.0.0
+ * Requires at least: 6.8
  * Requires PHP:      7.4
  * Author: Michael Wilkinson
  * Author URI: https://computething.co.uk
@@ -41,7 +41,7 @@ define( 'LSKC_CUSTOM_VERSION', '1.0.0' );
  */
 function activate_lskc_custom() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-lskc-custom-activator.php';
-	Plugin_Name_Activator::activate();
+	Lskc_Custom_Activator::activate();
 }
 
 /**
@@ -50,7 +50,7 @@ function activate_lskc_custom() {
  */
 function deactivate_lskc_custom() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-lskc-custom-deactivator.php';
-	Plugin_Name_Deactivator::deactivate();
+	Lskc_Custom_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_lskc_custom' );

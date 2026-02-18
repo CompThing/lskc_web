@@ -1,9 +1,9 @@
 {
 	"apiVersion": 3,
 	"$schema": "https://schemas.wp.org/trunk/block.json",
-        "name": "lskc/order-query",
-        "title": "Order Query",
-        "category": "lskc-blocks",
+        "name": "lskc-custom/order-query",
+        "title": "LSKC Order Query",
+        "category": "widgets",
         "icon": "product",
         "description": "Query WooCommerce orders.",
 	"supports": {
@@ -30,5 +30,5 @@
         },
 	"keywords": [ "WooCommerce" ],
 	"usesContext": [ "postId", "postType", "queryId" ],
-	"textdomain": "woocommerce"
+	"textdomain": "lskc-custom"
 }

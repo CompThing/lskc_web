@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "lskc-custom/inner-blocks-dcd824",
+	"version": "0.1.0",
+	"title": "LSKC Inner Blocks",
+	"allowedBlocks": [ "core/paragraph", "core/image", "core/heading" ],
+	"category": "widgets",
+	"example": {},
+	"textdomain": "block-development-examples",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"keywords": [ "dcd824" ]
+}
