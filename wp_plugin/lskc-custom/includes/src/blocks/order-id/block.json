@@ -1,6 +1,6 @@
 {
-  "apiVersion": 2,
-  "name": "woocommerce/order-id",
+  "apiVersion": 3,
+  "name": "lskc-custom/order-id",
   "title": "LSKC Order ID",
   "category": "woocommerce",
   "usesContext": ["wc/orderId"],

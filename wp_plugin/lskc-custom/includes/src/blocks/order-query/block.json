@@ -15,7 +15,7 @@
 		"inserter": false
 	},
         "providesContext": {
-                "lskc/orderQuery": "query"
+                "lskccustom/orderQuery": "query"
         },
         "attributes": {
                 "query": {

@@ -32,8 +32,18 @@ class Lskc_Order_Queries {
 	 */
         public static function create_order_query_blocks() {
                 $path = plugin_dir_path( __DIR__ ) . '/build';
-                $manifest = __DIR__ . '/build/blocks-manifest.php';
-				if ( function_exists( 'wp_register_block_types_from_metadata_collection' ) ) {
+                $manifest = plugin_dir_path( __DIR__ ) . '/build/blocks-manifest.php';
+				/**
+				 * Use the appropriate function to register block types based on the WordPress version.
+				 * - For WordPress 6.5 and above, use wp_register_block_types_from_metadata_collection.
+				 * - For WordPress 6.4, use wp_register_block_metadata_collection and then register each block type individually.
+				 * But going back to the old way on Wordpress 6.8 and above as the new function is causing issues with block registration. See -
+				 * Suspecting wp_register_block_types_from_metadata_collection is not working with php 7.4.
+				 */
+				if (
+					function_exists( 'wp_register_block_types_from_metadata_collection') and
+					(version_compare(PHP_VERSION, '8.0.0') >= 0)
+					) {
 					wp_register_block_types_from_metadata_collection( $path, $manifest );
 				} else {
 						if ( function_exists( 'wp_register_block_metadata_collection' ) ) {
@@ -41,7 +51,8 @@ class Lskc_Order_Queries {
 						}
 						$manifest_data = require $manifest;
 						foreach ( array_keys( $manifest_data ) as $block_type ) {
-								register_block_type( $path . "/{$block_type}" );
+								register_block_type( $path .  "/src/blocks/{$block_type}" );
+								error_log( "Registered block type: {$block_type}" );
 						}
 				}
         }

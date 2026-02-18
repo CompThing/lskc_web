@@ -1,9 +1,9 @@
 {
-  "apiVersion": 2,
-  "name": "woocommerce/order-total",
+  "apiVersion": 3,
+  "name": "lskc-custom/order-total",
   "title": "LSKC Order Total",
   "category": "woocommerce",
-  "usesContext": ["wc/orderId"],
+  "usesContext": ["lskc-custom/orderId"],
   "supports": {
     "html": false
   }
