@@ -1,5 +1,5 @@
 there=/home/michael/Documents/containers/lskc_new_theme/public_html/wp-content/plugins/lskc-custom/
 here=/home/michael/Documents/git/lskc/wp_plugin/lskc-custom
-cd $here && npx wp-scripts build --webpack-copy-php --blocks-manifest --webpack-src-dir=includes 
+cd $here && npx wp-scripts build --webpack-copy-php --blocks-manifest --webpack-src-dir=includes  --output-path=build
 rsync -a ${here}/ ${there}
 cd $here &&  npm run plugin-zip

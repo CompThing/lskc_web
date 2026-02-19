@@ -1,14 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-        "name": "lskc-custom/order-query",
-	"version": "0.1.0",
-        "title": "LSKC Order Query",
-        "category": "widgets",
-	"example": {},
-        "description": "Query WooCommerce orders.",
-	"keywords": [ "WooCommerce", "orders", "query" ],
-	"textdomain": "order-query",
+	"name": "notcore/query",
+	"title": "LSKC Standard Query Loop",
+	"category": "theme",
+	"description": "Copy of core post query block. ",
+	"keywords": [ "posts", "list", "blog", "blogs", "custom post types" ],
+	"textdomain": "default",
 	"attributes": {
 		"queryId": {
 			"type": "number"
@@ -22,7 +20,6 @@
 				"postType": "post",
 				"order": "desc",
 				"orderBy": "date",
-                                "statuses": ["completed", "processing"],
 				"author": "",
 				"search": "",
 				"exclude": [],
@@ -47,8 +44,8 @@
 	},
 	"usesContext": [ "templateSlug" ],
 	"providesContext": {
-		"orderQueryId": "queryId",
-		"orderQuery": "query",
+		"queryId": "queryId",
+		"query": "query",
 		"displayLayout": "displayLayout",
 		"enhancedPagination": "enhancedPagination"
 	},
@@ -61,7 +58,6 @@
 	},
 	"editorStyle": "wp-block-query-editor",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"render": "file:./render.php",
 	"viewScript": "file:./view.js"

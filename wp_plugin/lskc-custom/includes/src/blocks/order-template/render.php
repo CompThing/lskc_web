@@ -12,7 +12,7 @@ register_block_type( __DIR__, [
             return '';
         }
 
-        $query = $block->context['wc/orderQuery'] ?? null;
+        $query = $block->context['lskc-custom/orderQuery'] ?? null;
         if ( ! $query ) return '';
 
         $args = [

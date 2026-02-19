@@ -3,9 +3,10 @@
   "name": "lskc-custom/order-id",
   "title": "LSKC Order ID",
   "category": "woocommerce",
-  "usesContext": ["wc/orderId"],
+  "usesContext": ["lskc-custom/orderId"],
   "supports": {
     "html": false
   },
-  "textdomain": "wc-order-query-loop"
+  "textdomain": "wc-order-query-loop",
+  "editorScript": "file:./index.js"
 }

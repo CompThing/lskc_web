@@ -1,5 +1,5 @@
 <?php
-register_block_type( 'wc/order-product-quantity', [
+register_block_type( 'lskc-custom/order-product-quantity', [
     'attributes' => [
         'productId' => ['type' => 'number']
     ],

@@ -3,7 +3,7 @@ defined( 'ABSPATH' ) || exit;
 
 register_block_type( __DIR__, [
     'render_callback' => function( $attrs, $content, $block ) {
-        $order_id = $block->context['wc/orderId'] ?? null;
+        $order_id = $block->context['lskc-custom/orderId'] ?? null;
 
         if ( ! $order_id ) {
             return '';
